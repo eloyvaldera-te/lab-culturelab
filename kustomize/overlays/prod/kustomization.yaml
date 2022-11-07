@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+patchesStrategicMerge:
+- deployment.yaml
+configMapGenerator:
+- name: db-config
+  literals: 
+  - uri="domain.example.es"
+  - db_name="users"
+  options:
+    disableNameSuffixHash: true
+secretGenerator:
+- name: key
+  files:
+  - key
+  type: Opaque
+  options:
+    disableNameSuffixHash: true

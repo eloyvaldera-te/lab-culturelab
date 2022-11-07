@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-webapp
+spec:
+  replicas: 15
+  template:
+    spec:
+      containers:
+      - image: angular-node-webapp:v1.16.2
+        name: webapp

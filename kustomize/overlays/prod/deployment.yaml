@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: angular-webapp
 spec:
+  strategy:
+    type: Recreate
   replicas: 10
   template:
     spec:
